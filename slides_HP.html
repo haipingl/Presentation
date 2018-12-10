@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div id="extract-useful-data-from-rna-seq-results-in-wt-and-transgenic-tomato-fruits" class="slide section level1">
+<h1>Extract useful data from RNA-seq results in WT and transgenic tomato fruits</h1>
+<pre><code>          Haiping Liu Ph.D</code></pre>
+<h2 id="introduction">Introduction</h2>
+<ul>
+<li>Material</li>
+</ul>
+<p>RNA-seq results from amiR396 (miR396 overexpressed) and STTM396 (miR396 being silenced) tomato fruits</p>
+<ul>
+<li>Objective</li>
+</ul>
+<p>Visualization of RNA-seq data, especially extract differentially expressed genes I am interested in.</p>
+<h2 id="overview">Overview</h2>
+<ol style="list-style-type: decimal">
+<li>Import CVS file</li>
+<li>Evaluation the quality of RNA-seq results (histogram)</li>
+<li>Display how many genes are differentially expressed (how many up- or down-regulated).</li>
+<li>Display genes with annotation containing targeted words</li>
+</ol>
+<h2 id="load-the-libraries-and-read-csv-file">Load the libraries and read CSV file</h2>
+<pre><code>#load the libraries
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import pandas as pd
+import numpy as np
+
+#Read CVS file form local
+df = pd.read_csv(&#39;/Users/haipingliu/Desktop/BiOF309/Final_project/DEG_ anno.csv&#39;)</code></pre>
+<h2 id="display-how-many-genes-are-differentially-expressed">Display how many genes are differentially expressed</h2>
+<p><img src="image\gene_N_columns.png" width="1200"></p>
+<h2 id="display-how-many-genes-have-fold-change-above-2">Display how many genes have fold change above 2</h2>
+<p><img src="image\N_Fold2.png" width="1200"> <img src="image\Head_Fold2.png" width="1200"></p>
+<h2 id="display-up-regulated-genes-in-sttm396-fruits">Display up-regulated genes in STTM396 fruits</h2>
+<p><img src="image\OE_N.png" width="1200"> <img src="image\OE_head.png" width="1200"></p>
+<h2 id="display-down-regulated-genes-in-sttm396-fruits">Display down-regulated genes in STTM396 fruits</h2>
+<p><img src="image\D_N.png" width="1200"> <img src="image\D_head.png" width="1200"></p>
+<h2 id="rna-seq-result-follows-standard-normal-distribution-histogram">RNA-seq result follows standard normal distribution (histogram)</h2>
+<p><img src="image\his_distribution.png" width="1200"></p>
+<h2 id="extract-interested-genes-related-with-sweetness-of-fruits">Extract interested genes related with sweetness of fruits</h2>
+<p><img src="image\Sugar.png" width="1200"> <img src="image\Starch.png" width="1200"> <img src="image\Sucrose.png" width="1200"></p>
+<h2 id="cobine-all-the-genes-related-with-sweetness">Cobine all the genes related with sweetness</h2>
+<p><img src="image\combine_code.png" width="1200"> <img src="image\combined_genes.png" width="1200"></p>
+<h2 id="write-a-csv-file-from-dataframe">Write a CSV file from DataFrame</h2>
+<p><code>Sugar_gene.to_csv('Sugar_gene.csv')</code></p>
+<p><img src="image\sugar_genes_CVS.png" width="1200"></p>
+<h2 id="get-targeted-columns-fpkm-values-for-two-samples-from-sugar_gene">Get targeted columns (FPKM values for two samples) from &quot;Sugar_gene&quot;</h2>
+<p><img src="image\FPKM.png" width="1200"></p>
+<h2 id="heatmap-for-expression-of-sweetness-related-genes">Heatmap for expression of sweetness-related genes</h2>
+<p><img src="image\Heatmap.png" width="1200"></p>
+<h2 id="conclusion">Conclusion</h2>
+<ol style="list-style-type: decimal">
+<li>RNA-seq result is fine</li>
+<li>18 genes related with fruit sweetness are differentially expressed between amiR396 and STTM396 transgenic fruits.</li>
+</ol>
+</div>
+</body>
+</html>
